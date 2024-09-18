@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'banner-hero': "url(/images/12.png)"
+      },
       colors: {
         'verde-escuro-pasini': "#5B6D48",
         'verde-claro-pasini': "#798D66",

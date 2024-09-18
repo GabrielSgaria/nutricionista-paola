@@ -11,8 +11,16 @@ export default function LandingPage() {
       <NavBar />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-cinza-pasini">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="grid gap-12 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+          {/* <Image
+            alt="Mountains"
+            src="/images/12.png"
+            quality={100}
+            fill
+            sizes="100vw"
+            className="object-cover opacity-10"
+          /> */}
+          <div className="container mx-auto px-4 md:px-6 z-20">
+            <div className="flex flex-col md:flex-row gap-12 justify-around items-center">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -46,10 +54,11 @@ export default function LandingPage() {
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
+                className="md:max-w-[450px] max-w-[310px]"
               >
                 <Image
                   alt="Paola Pasini"
-                  className="object-fill"
+                  className="object-fill "
                   height={550}
                   src="/images/logo-redonda-3.png"
                   width={550}
@@ -86,7 +95,7 @@ export default function LandingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="rounded-lg border border-cinza-pasini bg-white text-verde-escuro-pasini shadow-sm"
+                  className="rounded-lg border border-cinza-pasini bg-white text-verde-escuro-pasini shadow-md md:min-h-[240px]"
                 >
                   <div className="flex flex-col items-center space-y-4 text-center p-6">
                     <service.icon className="h-12 w-12 text-dourado-escuro-pasini" />
@@ -133,6 +142,50 @@ export default function LandingPage() {
                   className="flex items-center space-x-2"
                 >
                   <CheckCircle className="h-6 w-6 text-dourado-escuro-pasini" />
+                  <span className="text-verde-escuro-pasini">{item}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center justify-center space-y-4 text-center"
+            >
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-verde-escuro-pasini">O que você pode esperar ao final desse processo</h2>
+              <p className="max-w-[900px] text-verde-claro-pasini md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Ao trabalhar comigo, você experimentará uma transformação completa em sua saúde e bem-estar.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="grid gap-6 mt-8 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              {[
+                "Uma relação mais saudável com a comida",
+                "Aumento significativo de energia e disposição",
+                "Melhora na qualidade do sono",
+                "Redução de sintomas relacionados à má alimentação",
+                "Maior confiança e autoestima",
+                "Hábitos alimentares sustentáveis a longo prazo"
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-center space-x-2"
+                >
+                  <ArrowRight className="h-6 w-6 text-dourado-escuro-pasini" />
                   <span className="text-verde-escuro-pasini">{item}</span>
                 </motion.div>
               ))}
@@ -240,50 +293,6 @@ export default function LandingPage() {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="flex flex-col items-center justify-center space-y-4 text-center"
-            >
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-verde-escuro-pasini">O que você pode esperar ao final desse processo</h2>
-              <p className="max-w-[900px] text-verde-claro-pasini md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Ao trabalhar comigo, você experimentará uma transformação completa em sua saúde e bem-estar.
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="grid gap-6 mt-8 sm:grid-cols-2 lg:grid-cols-3"
-            >
-              {[
-                "Uma relação mais saudável com a comida",
-                "Aumento significativo de energia e disposição",
-                "Melhora na qualidade do sono",
-                "Redução de sintomas relacionados à má alimentação",
-                "Maior confiança e autoestima",
-                "Hábitos alimentares sustentáveis a longo prazo"
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-center space-x-2"
-                >
-                  <ArrowRight className="h-6 w-6 text-dourado-escuro-pasini" />
-                  <span className="text-verde-escuro-pasini">{item}</span>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
         </section>
       </main>
