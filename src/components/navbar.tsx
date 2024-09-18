@@ -66,16 +66,16 @@ export function NavBar() {
                                 </button>
 
                                 <button
-                                    onClick={() => scrollToSection("clients")}
-                                    className="inline-flex h-10 items-center justify-center rounded-md bg-verde-escuro-pasini px-8 text-sm font-medium text-cinza-pasini shadow transition-colors hover:bg-verde-claro-pasini focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-verde-escuro-pasini"
-                                >
-                                    Clientes
-                                </button>
-                                <button
                                     onClick={() => scrollToSection("about")}
                                     className="inline-flex h-10 items-center justify-center rounded-md bg-verde-escuro-pasini px-8 text-sm font-medium text-cinza-pasini shadow transition-colors hover:bg-verde-claro-pasini focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-verde-escuro-pasini"
                                 >
                                     Quem somos
+                                </button>
+                                <button
+                                    onClick={() => scrollToSection("clients")}
+                                    className="inline-flex h-10 items-center justify-center rounded-md bg-verde-escuro-pasini px-8 text-sm font-medium text-cinza-pasini shadow transition-colors hover:bg-verde-claro-pasini focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-verde-escuro-pasini"
+                                >
+                                    Clientes
                                 </button>
                                 <button
                                     onClick={() => scrollToSection("contacts")}
