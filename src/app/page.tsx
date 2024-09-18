@@ -1,11 +1,12 @@
 'use client'
 import Image from "next/image"
 import Link from "next/link"
-import { CalendarDays, Salad, Apple, HeartPulse, Star, ArrowRight, Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Clipboard, Weight, Utensils, Activity, Stethoscope, Sprout } from "lucide-react"
+import { CalendarDays, Apple, HeartPulse, Star, ArrowRight, Clipboard, Weight, Utensils, Activity, Stethoscope, Sprout } from "lucide-react"
 import { motion } from "framer-motion"
 import { NavBar } from "../components/navbar"
 import { scrollToSection } from "../utils/actions"
 import { WhatsappLogo } from "@phosphor-icons/react"
+import { Footer } from "../components/footer"
 
 export default function LandingPage() {
   return (
@@ -34,12 +35,12 @@ export default function LandingPage() {
                     href="https://wa.me/5541999174483?text=Olá Paola, vim através do site, gostaria de agendar uma consulta!"
                     aria-label="Contato via WhatsApp"
                     target="_blank"
-                    className="inline-flex h-10 items-center justify-center rounded-md bg-verde-escuro-pasini px-8 text-sm font-medium text-cinza-pasini shadow transition-colors hover:bg-verde-claro-pasini focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-verde-escuro-pasini"
+                    className="inline-flex h-10 items-center justify-center rounded-md bg-verde-escuro-pasini px-8 text-sm font-medium text-cinza-pasini shadow-md transition-colors hover:bg-verde-claro-pasini focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-verde-escuro-pasini"
                   >
                     Agende uma Consulta
                   </Link>
                   <button onClick={() => scrollToSection("services")}
-                    className="inline-flex h-10 items-center justify-center rounded-md border border-verde-escuro-pasini bg-cinza-pasini px-8 text-sm font-medium text-verde-escuro-pasini shadow-sm transition-colors hover:bg-verde-claro-pasini hover:text-cinza-pasini focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-verde-escuro-pasini"
+                    className="inline-flex h-10 items-center justify-center rounded-md border border-verde-escuro-pasini bg-cinza-pasini px-8 text-sm font-medium text-verde-escuro-pasini shadow-md transition-colors hover:bg-verde-claro-pasini hover:text-cinza-pasini focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-verde-escuro-pasini"
                   >
                     Saiba Mais
                   </button>
@@ -199,9 +200,9 @@ export default function LandingPage() {
               >
                 <Image
                   alt="Paola Pasini trabalhando"
-                  className="object-fill"
+                  className="object-fill rounded-xl"
                   height={550}
-                  src="/images/logo-redonda-3.png"
+                  src="/images/sem-fundo.png"
                   width={550}
                 />
               </motion.div>
@@ -265,12 +266,13 @@ export default function LandingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="rounded-lg border border-verde-claro-pasini bg-white text-verde-escuro-pasini shadow-sm"
+                  className="rounded-lg border border-verde-claro-pasini bg-white text-verde-escuro-pasini shadow-md"
                 >
                   <div className="flex flex-col items-center space-y-4 text-center p-6">
                     <Image
                       alt={`Cliente ${index + 1}`}
                       className="rounded-full"
+                      quality={100}
                       height="80"
                       src={testimonial.photo}
                       style={{
@@ -292,46 +294,7 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
-      <footer className="bg-verde-escuro-pasini text-cinza-pasini py-12" id="contacts">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <Link href="/" className="flex items-center mb-4">
-                <Salad className="h-8 w-8 text-dourado-claro-pasini" />
-                <span className="ml-2 text-xl font-bold">Paola Pasini</span>
-              </Link>
-              <p className="text-sm">Transformando vidas através da nutrição personalizada.</p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-dourado-claro-pasini">Menu Rápido</h3>
-              <ul className="space-y-2">
-                <li><Link href="#services" className="hover:text-dourado-claro-pasini">Serviços</Link></li>
-                <li><Link href="#about" className="hover:text-dourado-claro-pasini">Sobre</Link></li>
-                <li><Link href="#testimonials" className="hover:text-dourado-claro-pasini">Depoimentos</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-dourado-claro-pasini">Contato</h3>
-              <ul className="space-y-2">
-                <li className="flex items-center"><Phone className="h-4 w-4 mr-2" /> (11) 99999-9999</li>
-                <li className="flex items-center"><Mail className="h-4 w-4 mr-2" /> contato@paolapasini.com</li>
-                <li className="flex items-center"><MapPin className="h-4 w-4 mr-2" /> São Paulo, SP</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-dourado-claro-pasini">Redes Sociais</h3>
-              <div className="flex space-x-4">
-                <Link href="#" className="hover:text-dourado-claro-pasini"><Facebook className="h-6 w-6" /></Link>
-                <Link href="#" className="hover:text-dourado-claro-pasini"><Instagram className="h-6 w-6" /></Link>
-                <Link href="#" className="hover:text-dourado-claro-pasini"><Linkedin className="h-6 w-6" /></Link>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-verde-claro-pasini text-center">
-            <p className="text-sm">&copy; 2023 Paola Pasini Nutrição. Todos os direitos reservados.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
       <Link
         href="https://wa.me/5541999174483?text=Olá Paola, vim através do site, gostaria de agendar uma consulta!"
         aria-label="Contato via WhatsApp"
