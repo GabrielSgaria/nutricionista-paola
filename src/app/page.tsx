@@ -1,7 +1,12 @@
 'use client'
+
 import Image from "next/image"
 import Link from "next/link"
-import { CalendarDays, Apple, HeartPulse, Star, ArrowRight, Clipboard, Weight, Utensils, Activity, Stethoscope, Sprout } from "lucide-react"
+import {
+  CalendarDays, Apple, HeartPulse, ArrowRight, Clipboard,
+  Weight, Activity, Stethoscope, Sprout, HeartHandshake, Hospital, Bed, Salad, Dumbbell, Pill,
+  Thermometer, GraduationCap, BookOpen, Award
+} from "lucide-react"
 import { motion } from "framer-motion"
 import { NavBar } from "../components/navbar"
 import { scrollToSection } from "../utils/actions"
@@ -24,10 +29,12 @@ export default function LandingPage() {
               >
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-verde-escuro-pasini text-center md:text-start">
-                    Transforme sua saúde com <br />Paola Pasini
+                  Transforme sua saúde com <br/>
+                  Paola Pasini
                   </h1>
-                  <p className="max-w-[600px] text-verde-claro-pasini md:text-xl text-center md:text-start">
-                    Descubra uma vida mais saudável e equilibrada com orientação nutricional personalizada.
+                  <p className="max-w-[600px] text-verde-claro-pasini md:text-xl text-center md:text-start flex items-center justify-center md:justify-start">
+                    {/* <Brain className="w-6 h-6 mr-2 text-dourado-escuro-pasini" /> */}
+                    Nutricionista do processo do envelhecimento e da longevidade
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row items-center justify-center md:justify-start ">
@@ -37,12 +44,12 @@ export default function LandingPage() {
                     target="_blank"
                     className="inline-flex h-10 items-center justify-center rounded-md bg-verde-escuro-pasini px-8 text-sm font-medium text-cinza-pasini shadow-md transition-colors hover:bg-verde-claro-pasini focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-verde-escuro-pasini"
                   >
-                    Agende uma Consulta
+                    <CalendarDays className="w-4 h-4 mr-2" /> Agende uma Consulta
                   </Link>
                   <button onClick={() => scrollToSection("services")}
                     className="inline-flex h-10 items-center justify-center rounded-md border border-verde-escuro-pasini bg-cinza-pasini px-8 text-sm font-medium text-verde-escuro-pasini shadow-md transition-colors hover:bg-verde-claro-pasini hover:text-cinza-pasini focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-verde-escuro-pasini"
                   >
-                    Saiba Mais
+                    <ArrowRight className="w-4 h-4 mr-2" /> Saiba Mais
                   </button>
                 </div>
               </motion.div>
@@ -54,7 +61,7 @@ export default function LandingPage() {
               >
                 <Image
                   alt="Paola Pasini"
-                  className="object-fill "
+                  className="object-fill rounded-full"
                   height={550}
                   src="/images/logo-redonda-3.png"
                   width={550}
@@ -63,6 +70,51 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+
+        <section id="envelhecimento" className="w-full py-12 md:py-24 lg:py-32 bg-white">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center justify-center space-y-4 text-center"
+            >
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-verde-escuro-pasini flex items-center">
+                <HeartHandshake className="w-12 h-12 mr-4 text-dourado-escuro-pasini" /> Envelhecimento
+              </h2>
+              <p className="max-w-[900px] text-verde-claro-pasini md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                O processo do envelhecimento é visto por uma boa parte da população como uma fase assustadora, pois está associada, entre outros fatores, a doenças, maior fragilidade, limitações físicas, alterações neurológicas e perda de autonomia, tornando o idoso uma pessoa dependente, restrita em suas atividades o que o afasta de seu meio social, de novos relacionamentos e a participação nas atividades de lazer.
+              </p>
+              <p className="max-w-[900px] text-verde-claro-pasini md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Tal processo pode se tornar mais leve quando bem acompanhado por profissional capacitado que tenha uma visão ampla de todos os fatores que podem acometer a pessoa idosa, atuando na prevenção, assim como, em maior controle desses fatores de forma a retardar a evolução do processo da fragilidade que acomete o idoso.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        <section id="longevidade" className="w-full py-12 md:py-24 lg:py-32 bg-cinza-pasini">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center justify-center space-y-4 text-center"
+            >
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-verde-escuro-pasini flex items-center">
+                <HeartPulse className="w-12 h-12 mr-4 text-dourado-escuro-pasini" /> Longevidade com Saúde
+              </h2>
+              <p className="max-w-[900px] text-verde-claro-pasini md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Também é fundamental iniciar os cuidados com a saúde e acompanhamento nutricional antes dos 60 anos, de forma a se preparar positivamente para a terceira idade, por meio da prevenção de diversas doenças e condições que podem debilitar o idoso, com o objetivo de promover saúde, vitalidade, capacidade física, mental e emocional para maior aproveitamento dessa fase tão especial.
+              </p>
+              <p className="max-w-[900px] text-verde-claro-pasini md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Hoje as pessoas estão vivendo mais, no entanto é preciso viver com mais saúde!
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
         <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
@@ -72,18 +124,16 @@ export default function LandingPage() {
               viewport={{ once: true }}
               className="flex flex-col items-center justify-center space-y-4 text-center"
             >
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-verde-escuro-pasini">Nossos Serviços</h2>
-                <p className="max-w-[900px] text-verde-claro-pasini md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Oferecemos uma variedade de serviços nutricionais para atender às suas necessidades individuais.
-                </p>
-              </div>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-verde-escuro-pasini flex items-center">
+                <Clipboard className="w-12 h-12 mr-4 text-dourado-escuro-pasini" /> Serviços
+              </h2>
             </motion.div>
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
               {[
-                { icon: Apple, title: "Consulta Nutricional", description: "Avaliação completa e plano alimentar personalizado." },
-                { icon: HeartPulse, title: "Acompanhamento", description: "Suporte contínuo para alcançar seus objetivos de saúde." },
-                { icon: CalendarDays, title: "Planejamento de Refeições", description: "Cardápios semanais adaptados ao seu estilo de vida." }
+                { icon: Apple, text: "Atendimento e acompanhamento nutricional a partir dos 40 anos" },
+                { icon: Hospital, text: "Acompanhamento nutricional nas doenças crônicas não transmissíveis" },
+                { icon: Bed, text: "Acompanhamento nutricional após alta hospitalar para recuperação do estado nutricional" },
+                { icon: Stethoscope, text: "Atendimento nutricional a pessoas acamadas ou com dificuldade de locomoção e em uso de sonda para alimentação" }
               ].map((service, index) => (
                 <motion.div
                   key={index}
@@ -91,104 +141,17 @@ export default function LandingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="rounded-lg border border-cinza-pasini bg-white text-verde-escuro-pasini shadow-md md:min-h-[240px]"
+                  className="rounded-lg border border-cinza-pasini bg-white text-verde-escuro-pasini shadow-md p-6 flex items-start space-x-4"
                 >
-                  <div className="flex flex-col items-center space-y-4 text-center p-6">
-                    <service.icon className="h-12 w-12 text-dourado-escuro-pasini" />
-                    <h3 className="text-2xl font-bold">{service.title}</h3>
-                    <p className="text-verde-claro-pasini">{service.description}</p>
-                  </div>
+                  <service.icon className="w-8 h-8 text-dourado-escuro-pasini flex-shrink-0" />
+                  <p className="text-verde-claro-pasini">{service.text}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-cinza-pasini">
-          <div className="container mx-auto px-4 md:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="flex flex-col items-center justify-center space-y-4 text-center"
-            >
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-verde-escuro-pasini">Aqui está o que posso fazer por você:</h2>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="grid gap-6 mt-8 sm:grid-cols-2 lg:grid-cols-3"
-            >
-              {[
-                { icon: Clipboard, text: "Desenvolver planos nutricionais personalizados" },
-                { icon: Weight, text: "Ajudar na perda de peso de forma saudável" },
-                { icon: Utensils, text: "Melhorar sua relação com a comida" },
-                { icon: Activity, text: "Otimizar sua performance atlética" },
-                { icon: Stethoscope, text: "Gerenciar condições de saúde através da dieta" },
-                { icon: Sprout, text: "Criar hábitos alimentares sustentáveis" }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-center space-x-2"
-                >
-                  <item.icon className="h-6 w-6 text-dourado-escuro-pasini" />
-                  <span className="text-verde-escuro-pasini">{item.text}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="flex flex-col items-center justify-center space-y-4 text-center"
-            >
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-verde-escuro-pasini">O que você pode esperar ao final desse processo</h2>
-              <p className="max-w-[900px] text-verde-claro-pasini md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Ao trabalhar comigo, você experimentará uma transformação completa em sua saúde e bem-estar.
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="grid gap-6 mt-8 sm:grid-cols-2 lg:grid-cols-3"
-            >
-              {[
-                "Uma relação mais saudável com a comida",
-                "Aumento significativo de energia e disposição",
-                "Melhora na qualidade do sono",
-                "Redução de sintomas relacionados à má alimentação",
-                "Maior confiança e autoestima",
-                "Hábitos alimentares sustentáveis a longo prazo"
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-center space-x-2"
-                >
-                  <ArrowRight className="h-6 w-6 text-dourado-escuro-pasini" />
-                  <span className="text-verde-escuro-pasini">{item}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-        <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-white">
+
+        <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-cinza-pasini">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col md:flex-row gap-12 justify-around items-center">
               <motion.div
@@ -214,17 +177,19 @@ export default function LandingPage() {
                 className="flex flex-col justify-center space-y-4"
               >
                 <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-verde-escuro-pasini">Sobre Paola Pasini</h2>
-                  <p className="max-w-[600px] text-verde-claro-pasini md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    Paola Pasini é uma nutricionista dedicada com anos de experiência em ajudar pessoas a alcançarem
-                    uma vida mais saudável através da alimentação equilibrada.
-                  </p>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-verde-escuro-pasini flex items-center">
+                    <GraduationCap className="w-12 h-12 mr-4 text-dourado-escuro-pasini" /> Sobre Paola Pasini
+                  </h2>
                 </div>
                 <ul className="grid gap-2 py-4">
                   {[
-                    "Formada em Nutrição pela Universidade XYZ",
-                    "Especialista em Nutrição Esportiva",
-                    "Mais de 1000 pacientes atendidos"
+                    { icon: Award, text: "Nutricionista formada desde 2006" },
+                    { icon: BookOpen, text: "Pós-graduada em Nutrição Oncológica pelo Hospital Erasto Gaertner (2008)" },
+                    { icon: Hospital, text: "Residência multiprofissional em Nutrição Oncológica pelo Hospital Erasto Gaertner (2013)" },
+                    { icon: GraduationCap, text: "Mestrado em Alimentação e Nutrição pela UFPR (2019)" },
+                    { icon: BookOpen, text: "Docente da Universidade Tuiuti do Paraná (atual)" },
+                    { icon: BookOpen, text: "Docente do Centro Universitário Internacional Uninter (atual)" },
+                    { icon: Stethoscope, text: "Com mais de 10 anos em experiência na área hospitalar: setor de oncologia, traumatologia e cirurgia geral, com ampla experiência em atendimento a pacientes adultos e idosos hospitalizados." }
                   ].map((item, index) => (
                     <motion.li
                       key={index}
@@ -232,10 +197,10 @@ export default function LandingPage() {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                       viewport={{ once: true }}
-                      className="flex items-center gap-2"
+                      className="flex items-center gap-2 max-w-[560px]"
                     >
-                      <Star className="h-4 w-4 text-dourado-escuro-pasini" />
-                      <span className="text-verde-escuro-pasini">{item}</span>
+                      <item.icon className="h-6 w-6 text-dourado-escuro-pasini flex-shrink-0" />
+                      <span className="text-verde-escuro-pasini w-full">{item.text}</span>
                     </motion.li>
                   ))}
                 </ul>
@@ -243,54 +208,50 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <section id="clients" className="w-full py-12 md:py-24 lg:py-32 bg-cinza-pasini">
+
+        <section id="capabilities" className="w-full py-12 md:py-24 lg:py-32 bg-white">
           <div className="container mx-auto px-4 md:px-6">
-            <motion.h2
+            <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-8 text-verde-escuro-pasini"
+              className="flex flex-col items-center justify-center space-y-4 text-center"
             >
-              Depoimentos
-            </motion.h2>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-verde-escuro-pasini flex items-center">
+                <Sprout className="w-12 h-12 mr-4 text-dourado-escuro-pasini" /> O que posso fazer por você
+              </h2>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="grid gap-6 mt-8 sm:grid-cols-2 lg:grid-cols-3"
+            >
               {[
-                { photo: "/images/clients/1.jpg", name: "Maria Silva", text: "A orientação da Paola mudou minha vida. Perdi peso e me sinto muito mais disposta!" },
-                { photo: '/images/clients/2.jpg', name: "João Santos", text: "Graças à Paola, consegui melhorar meu desempenho nos treinos e competições." },
-                { photo: '/images/clients/3.jpg', name: "Ana Oliveira", text: "O acompanhamento da Paola foi fundamental para controlar minha diabetes." }
-              ].map((testimonial, index) => (
+                { icon: Salad, text: "Reeducação alimentar respeitando suas preferências e hábitos alimentares" },
+                { icon: Weight, text: "Recuperação do peso corporal adequado" },
+                { icon: Dumbbell, text: "Melhorar composição corporal (relação massa magra e gordura corporal)" },
+                { icon: Stethoscope, text: "Acompanhamento nutricional nas doenças como diabetes, câncer, doenças respiratórias e doenças cardiovasculares, assim como, nas doenças neurológicas (doença de Alzheimer, Parkinson, demência senil)" },
+                { icon: Activity, text: "Manejo nutricional dos sintomas gastrointestinais" },
+                { icon: Clipboard, text: "Plano alimentar personalizado" },
+                { icon: Pill, text: "Prescrição de suplementos alimentares considerando a situação clínica e a necessidade individualizada" },
+                { icon: Thermometer, text: "Prescrição de nutrição enteral individualizada e manejo nutricional nas lesões por pressão" }
+              ].map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="rounded-lg border border-verde-claro-pasini bg-white text-verde-escuro-pasini shadow-md"
+                  className="flex items-center space-x-4 bg-cinza-pasini rounded-lg p-4 shadow-md"
                 >
-                  <div className="flex flex-col items-center space-y-4 text-center p-6">
-                    <Image
-                      alt={`Cliente ${index + 1}`}
-                      className="rounded-full"
-                      quality={100}
-                      height="80"
-                      src={testimonial.photo}
-                      style={{
-                        aspectRatio: "80/80",
-                        objectFit: "cover",
-                      }}
-                      width="80"
-                    />
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-bold">{testimonial.name}</h3>
-                      <p className="text-sm text-verde-claro-pasini">
-                        {testimonial.text}
-                      </p>
-                    </div>
-                  </div>
+                  <item.icon className="h-8 w-8 text-dourado-escuro-pasini flex-shrink-0" />
+                  <span className="text-verde-escuro-pasini">{item.text}</span>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
       </main>
