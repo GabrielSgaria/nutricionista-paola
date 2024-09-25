@@ -51,7 +51,7 @@ export function NavBar() {
         <>
             <NavButton onClick={() => scrollToSection("services")}>Serviços</NavButton>
             <NavButton onClick={() => scrollToSection("about")}>Quem somos</NavButton>
-            <NavButton onClick={() => scrollToSection("clients")}>Clientes</NavButton>
+            {/* <NavButton onClick={() => scrollToSection("clients")}>Clientes</NavButton> */}
             <NavButton onClick={() => scrollToSection("contacts")}>Contato</NavButton>
         </>
     )
