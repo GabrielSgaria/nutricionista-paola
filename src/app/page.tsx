@@ -16,9 +16,21 @@ import { Footer } from "../components/footer"
 export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen relative">
+
       <NavBar />
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-cinza-pasini">
+        <section className="w-full pb-12 pt-32 md:py-24 lg:py-32 xl:py-48 bg-cinza-pasini/85 relative">
+                <Image
+            alt="Mountains"
+            src='/images/10.png'
+            quality={100}
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: 'cover',
+            }}
+            className="opacity-20 -z-20"
+          />
           <div className="container mx-auto px-4 md:px-6 z-20">
             <div className="flex flex-col md:flex-row gap-12 justify-around items-center">
               <motion.div
@@ -29,12 +41,12 @@ export default function LandingPage() {
               >
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-verde-escuro-pasini text-center md:text-start">
-                  Transforme sua saúde com <br/>
-                  Paola Pasini
+                    Transforme sua saúde com <br />
+                    Paola Pasini
                   </h1>
                   <p className="max-w-[600px] text-verde-claro-pasini md:text-xl text-center md:text-start flex items-center justify-center md:justify-start">
                     {/* <Brain className="w-6 h-6 mr-2 text-dourado-escuro-pasini" /> */}
-                    Nutricionista do processo do envelhecimento e da longevidade
+                    Nutricionista do processo do envelhecimento e da longevidade.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row items-center justify-center md:justify-start ">
@@ -71,7 +83,18 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="envelhecimento" className="w-full py-12 md:py-24 lg:py-32 bg-white">
+        <section id="envelhecimento" className="w-full py-12 md:py-24 lg:py-32 bg-white relative">
+          <Image
+            alt="Mountains"
+            src='/images/12.png'
+            quality={100}
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: 'cover',
+            }}
+            className="opacity-5"
+          />
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -93,7 +116,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="longevidade" className="w-full py-12 md:py-24 lg:py-32 bg-cinza-pasini">
+        <section id="longevidade" className="w-full py-12 md:py-24 lg:py-32 bg-cinza-pasini ">
+          
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -128,7 +152,7 @@ export default function LandingPage() {
                 <Clipboard className="w-12 h-12 mr-4 text-dourado-escuro-pasini" /> Serviços
               </h2>
             </motion.div>
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
+            <div className="grid gap-6 py-12 mx-auto max-w-4xl grid-cols-1 lg:grid-cols-2 lg:gap-12 ">
               {[
                 { icon: Apple, text: "Atendimento e acompanhamento nutricional a partir dos 40 anos" },
                 { icon: Hospital, text: "Acompanhamento nutricional nas doenças crônicas não transmissíveis" },
@@ -141,9 +165,9 @@ export default function LandingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="rounded-lg border border-cinza-pasini bg-white text-verde-escuro-pasini shadow-md p-6 flex items-start space-x-4"
+                  className="w-96 rounded-lg border border-cinza-pasini bg-white text-verde-escuro-pasini shadow-md p-6 flex flex-col justify-center items-center text-center gap-5 mx-auto"
                 >
-                  <service.icon className="w-8 h-8 text-dourado-escuro-pasini flex-shrink-0" />
+                  <service.icon className="w-10 h-10 text-dourado-escuro-pasini flex-shrink-0" />
                   <p className="text-verde-claro-pasini">{service.text}</p>
                 </motion.div>
               ))}

@@ -1,94 +1,95 @@
-"use client";
-import Link from "next/link";
-import { useState } from "react";
-import Image from "next/image";
-import { DotsHorizontalIcon } from "@radix-ui/react-icons";
+'use client'
+
+import Link from "next/link"
+import { useState, useEffect } from "react"
+import Image from "next/image"
+import { Menu } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import {
+    Sheet,
+    SheetContent,
+    SheetTrigger,
+} from "@/components/ui/sheet"
 
 export function NavBar() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false)
+    const [scrolled, setScrolled] = useState(false)
 
-    const handleMenuToggle = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-    const closeMenu = () => {
-        setIsMenuOpen(false);
-    };
+    useEffect(() => {
+        const handleScroll = () => {
+            const isScrolled = window.scrollY > 10
+            if (isScrolled !== scrolled) {
+                setScrolled(isScrolled)
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [scrolled])
 
     const scrollToSection = (id: string) => {
-        const element = document.getElementById(id);
+        const element = document.getElementById(id)
         if (element) {
-            closeMenu();
-            element.scrollIntoView({ behavior: "smooth" });
+            setIsOpen(false)
+            element.scrollIntoView({ behavior: "smooth" })
         }
-    };
+    }
+
+    const NavButton = ({ children, onClick }: { children: React.ReactNode; onClick: () => void }) => (
+        <button
+            onClick={onClick}
+            className="inline-flex h-10 items-center justify-center rounded-md bg-verde-escuro-pasini px-8 text-sm font-medium text-cinza-pasini shadow transition-colors hover:bg-verde-claro-pasini focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-verde-escuro-pasini"
+        >
+            {children}
+        </button>
+    )
+
+    const NavItems = () => (
+        <>
+            <NavButton onClick={() => scrollToSection("services")}>Serviços</NavButton>
+            <NavButton onClick={() => scrollToSection("about")}>Quem somos</NavButton>
+            <NavButton onClick={() => scrollToSection("clients")}>Clientes</NavButton>
+            <NavButton onClick={() => scrollToSection("contacts")}>Contato</NavButton>
+        </>
+    )
 
     return (
-        <div className="z-50 relative border-b border-cinza-pasini">
-            <div className="bg-cinza-pasini">
-                <div
-                    className={`container mx-auto flex flex-row items-center justify-between gap-8 py-6 text-lg px-8  ${isMenuOpen ? "flex-col" : "flex-row "
-                        }`}
-                >
-                    <div className="flex h-9 w-9 items-center justify-center lg:hidden">
-                        <DotsHorizontalIcon
-                            onClick={handleMenuToggle}
-                            className="size-8 text-verde-escuro-pasini hover:size-9 focus:outline-none lg:hidden"
+        <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-cinza-pasini shadow-md' : 'bg-transparent'
+            }`}>
+            <div className="container mx-auto px-4">
+                <div className="flex items-center justify-between py-4">
+                    <Link href="/" className="flex items-center space-x-2">
+                        <Image
+                            src="/images/logo.png"
+                            alt="Logo Principal"
+                            width={150}
+                            height={40}
+                            priority
+                            quality={100}
+                            className="object-contain"
                         />
+                    </Link>
+                    <div className="hidden md:flex items-center space-x-4">
+                        <NavItems />
                     </div>
-                    <div className="w-48 h-full relative">
-                        <Link href="/" onClick={closeMenu}>
-                            <Image
-                                width={400}
-                                height={400}
-                                src="/images/logo.png"
-                                alt="Logo Principal"
-                                priority
-                                quality={100}
-                                className="object-fill"
-                            />
-                        </Link>
-                    </div>
-
-                    <div
-                        className={`lg:flex lg:items-center lg:gap-8 ${isMenuOpen ? "flex" : "hidden"
-                            }`}
-                    >
-                        <nav className="md:flex grow justify-center ">
-                            <div
-                                className={`flex min-w-0 flex-row items-center justify-center gap-8 text-base text-center ${isMenuOpen ? "flex-col" : "flex-row"
-                                    }`}
-                            >
-                                <button
-                                    onClick={() => scrollToSection("services")}
-                                    className="inline-flex h-10 items-center justify-center rounded-md bg-verde-escuro-pasini px-8 text-sm font-medium text-cinza-pasini shadow transition-colors hover:bg-verde-claro-pasini focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-verde-escuro-pasini"
-                                >
-                                    Serviços
-                                </button>
-
-                                <button
-                                    onClick={() => scrollToSection("about")}
-                                    className="inline-flex h-10 items-center justify-center rounded-md bg-verde-escuro-pasini px-8 text-sm font-medium text-cinza-pasini shadow transition-colors hover:bg-verde-claro-pasini focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-verde-escuro-pasini"
-                                >
-                                    Quem somos
-                                </button>
-                                <button
-                                    onClick={() => scrollToSection("clients")}
-                                    className="inline-flex h-10 items-center justify-center rounded-md bg-verde-escuro-pasini px-8 text-sm font-medium text-cinza-pasini shadow transition-colors hover:bg-verde-claro-pasini focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-verde-escuro-pasini"
-                                >
-                                    Clientes
-                                </button>
-                                <button
-                                    onClick={() => scrollToSection("contacts")}
-                                    className="inline-flex h-10 items-center justify-center rounded-md bg-verde-escuro-pasini px-8 text-sm font-medium text-cinza-pasini shadow transition-colors hover:bg-verde-claro-pasini focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-verde-escuro-pasini"
-                                >
-                                    Contato
-                                </button>
-
+                    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                        <SheetTrigger asChild className="md:hidden bg-transparent shadow-none border-none hover:bg-verde-claro-pasini/50">
+                            <Button variant="outline" size="icon" className={scrolled ? '' : 'border-transparent'}>
+                                <Menu className="h-6 w-6" />
+                                <span className="sr-only">Toggle menu</span>
+                            </Button>
+                        </SheetTrigger>
+                        <SheetContent side="right" className="bg-cinza-pasini">
+                            <div className="flex flex-col space-y-4 mt-8">
+                                <NavItems />
                             </div>
-                        </nav>
-                    </div>
+                        </SheetContent>
+                    </Sheet>
                 </div>
             </div>
         </div>
-    );
+    )
 }
