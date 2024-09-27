@@ -41,12 +41,12 @@ export default function LandingPage() {
               >
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-verde-escuro-pasini text-center md:text-start">
-                    Transforme sua saúde com <br />
-                    Paola Pasini
+                    Viva mais. <br />
+                    Viva melhor!
                   </h1>
                   <p className="max-w-[600px] text-verde-claro-pasini md:text-xl text-center md:text-start flex items-center justify-center md:justify-start">
                     {/* <Brain className="w-6 h-6 mr-2 text-dourado-escuro-pasini" /> */}
-                    Nutricionista do processo do envelhecimento e da longevidade.
+                    Nutricionista no processo do envelhecimento e da longevidade.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row items-center justify-center md:justify-start ">
@@ -148,53 +148,8 @@ export default function LandingPage() {
             </motion.div>
           </div>
         </section>
-        <section id="capabilities" className="w-full py-12 md:py-24 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="flex flex-col items-center justify-center space-y-4 text-center"
-            >
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-verde-escuro-pasini flex items-center">
-                <Sprout className="w-12 h-12 mr-4 text-dourado-escuro-pasini" /> O que posso fazer por você
-              </h2>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="grid gap-6 mt-8 sm:grid-cols-2 lg:grid-cols-3"
-            >
-              {[
-                { icon: Salad, text: "Reeducação alimentar respeitando as suas preferências e hábitos alimentares." },
-                { icon: Weight, text: "Recuperação do peso corporal adequado." },
-                { icon: Dumbbell, text: "Melhorar a composição corporal (relação entre massa magra e gordura corporal)." },
-                { icon: Stethoscope, text: "Acompanhamento nutricional nas doenças como diabetes, câncer, doenças respiratórias e doenças cardiovasculares, assim como nas doenças neurológicas (doença de Alzheimer, Parkinson, demência senil)." },
-                { icon: Activity, text: "Manejo nutricional dos sintomas gastrointestinais." },
-                { icon: Clipboard, text: "Plano alimentar personalizado." },
-                { icon: Pill, text: "Prescrição de suplementos alimentares considerando a situação clínica e a necessidade individualizada." },
-                { icon: Thermometer, text: "Prescrição de nutrição enteral individualizada e manejo nutricional nas lesões por pressão." }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-center space-x-4 bg-cinza-pasini rounded-lg p-4 shadow-md"
-                >
-                  <item.icon className="h-8 w-8 text-dourado-escuro-pasini flex-shrink-0" />
-                  <span className="text-verde-escuro-pasini">{item.text}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
 
-        <section id="services" className="w-full py-12 md:pb-24 bg-white">
+        <section id="services" className="w-full py-12 md:pt-24 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -227,6 +182,53 @@ export default function LandingPage() {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section id="capabilities" className="w-full py-12 md:py-24 bg-white">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center justify-center space-y-4 text-center"
+            >
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-verde-escuro-pasini flex items-center">
+                <Sprout className="w-12 h-12 mr-4 text-dourado-escuro-pasini" /> O que posso fazer por você
+              </h2>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="grid gap-6 mt-8 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              {[
+                { icon: Salad, text: "Reeducação alimentar respeitando as suas preferências e hábitos alimentares." },
+                { icon: Weight, text: "Recuperação do peso ideal." },
+                { icon: Dumbbell, text: "Melhorar a composição corporal (relação entre massa magra e gordura corporal)." },
+                { icon: Stethoscope, text: "Acompanhamento nutricional nas doenças como diabetes, câncer, doenças respiratórias e doenças cardiovasculares, assim como nas doenças neurológicas (doença de Alzheimer, Parkinson, demência senil)." },
+                { icon: Activity, text: "Manejo nutricional dos sintomas gastrointestinais." },
+                { icon: Activity, text: "Manejo nutricional nas lesões por pressão." },
+                { icon: Clipboard, text: "Plano alimentar personalizado." },
+                { icon: Pill, text: "Prescrição de suplementos alimentares considerando a condição clínica e a necessidade individual." },
+                { icon: Thermometer, text: "Prescrição de nutrição enteral e manejo nutricional nas lesões por pressão." },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-center space-x-4 bg-cinza-pasini rounded-lg p-4 shadow-md"
+                >
+                  <item.icon className="h-8 w-8 text-dourado-escuro-pasini flex-shrink-0" />
+                  <span className="text-verde-escuro-pasini">{item.text}</span>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </section>
 

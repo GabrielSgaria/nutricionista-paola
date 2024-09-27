@@ -51,7 +51,6 @@ export function NavBar() {
         <>
             <NavButton onClick={() => scrollToSection("services")}>Serviços</NavButton>
             <NavButton onClick={() => scrollToSection("about")}>Quem somos</NavButton>
-            {/* <NavButton onClick={() => scrollToSection("clients")}>Clientes</NavButton> */}
             <NavButton onClick={() => scrollToSection("contacts")}>Contato</NavButton>
         </>
     )
@@ -66,7 +65,7 @@ export function NavBar() {
                             src="/images/logo.png"
                             alt="Logo Principal"
                             width={150}
-                            height={40}
+                            height={140}
                             priority
                             quality={100}
                             className="object-contain"
