@@ -214,7 +214,7 @@ export default function LandingPage() {
                 { icon: Activity, text: "Manejo nutricional nas lesões por pressão." },
                 { icon: Clipboard, text: "Plano alimentar personalizado." },
                 { icon: Pill, text: "Prescrição de suplementos alimentares considerando a condição clínica e a necessidade individual." },
-                { icon: Thermometer, text: "Prescrição de nutrição enteral e manejo nutricional nas lesões por pressão." },
+                { icon: Thermometer, text: "Prescrição de nutrição enteral." },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -273,7 +273,7 @@ export default function LandingPage() {
                     <GraduationCap className="w-12 h-12 mr-4 text-dourado-escuro-pasini" /> Sobre Paola Pasini
                   </h2>
                 </div>
-                <ul className="grid gap-2 py-4">
+                <ul className="grid gap-2 py-4 text-lg">
                   {[
                     { icon: Award, text: "Nutricionista formada desde 2006." },
                     { icon: BookOpen, text: "Pós-graduada em Nutrição Oncológica pelo Hospital Erasto Gaertner (2008)." },

@@ -5,7 +5,7 @@ export function Footer() {
     return (
         <footer className="bg-verde-escuro-pasini text-cinza-pasini py-12" id="contacts">
             <div className="container mx-auto px-4 md:px-6">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:flex md: justify-between gap-8">
                     <div>
                         <Link href="/" className="flex items-center mb-4">
                             <Salad className="h-8 w-8 text-dourado-claro-pasini" />
@@ -13,14 +13,14 @@ export function Footer() {
                         </Link>
                         <p className="text-sm">Transformando vidas através da nutrição personalizada.</p>
                     </div>
-                    <div>
+                    {/* <div>
                         <h3 className="text-lg font-semibold mb-4 text-dourado-claro-pasini">Menu Rápido</h3>
                         <ul className="space-y-2">
                             <li><Link href="#services" className="hover:text-dourado-claro-pasini">Serviços</Link></li>
                             <li><Link href="#about" className="hover:text-dourado-claro-pasini">Quem somos</Link></li>
                             <li><Link href="#contacts" className="hover:text-dourado-claro-pasini">Contato</Link></li>
                         </ul>
-                    </div>
+                    </div> */}
                     <div>
                         <h3 className="text-lg font-semibold mb-4 text-dourado-claro-pasini">Contato</h3>
                         <ul className="space-y-2">
